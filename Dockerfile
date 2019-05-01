@@ -1,6 +1,6 @@
 FROM devopsedu/webapp
 
-MAINTAINER Karina Hallberg <kamor23375923@gmail.com>
+MAINTAINER Ram Dittakavi <ramdittakavi@gmail.com>
 
 #Update Repository
 RUN apt-get update -y
@@ -13,20 +13,10 @@ RUN apt-get install -y php7.0 libapache2-mod-php7.0 php7.0-cli php7.0-common php
 
 #Copy Application Files
 RUN rm -rf /var/www/html/*
-RUN mkdir /var/www/html/template
-RUN mkdir /var/www/html/content
-COPY config.php /var/www/html
-COPY functions.php /var/www/html
-COPY index.php /var/www/html
-COPY template/template.php /var/www/html/template
-COPY content/404.php  /var/www/html/content
-COPY content/about-us.php  /var/www/html/content
-COPY content/contact.php  /var/www/html/content
-COPY content/home.php  /var/www/html/content
-COPY content/products.php  /var/www/html/content
+COPY website /var/www/html/
 
 #Open port 80
-EXPOSE 80
+EXPOSE 8085
 
 #Start Apache service
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
