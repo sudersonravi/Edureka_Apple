@@ -19,4 +19,10 @@ COPY website /var/www/html/
 EXPOSE 8085
 
 #Start Apache service
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+CMD ["/usr/sbin/apache2ctl", "-D", "BACKGROUND"]
+
+# Start Selenium Test
+COPY selenium-server-standalone-3.14.0.jar /tmp
+RUN nohup java -jar /tmp/selenium-server-standalone-3.14.0.jar &
+
+CMD ["/bin/bash"]
