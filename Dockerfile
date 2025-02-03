@@ -1,6 +1,6 @@
 FROM devopsedu/webapp
 
-MAINTAINER Ram Dittakavi <ramdittakavi@gmail.com>
+MAINTAINER suderson ravi <suderson.ravi89@gmail.com>
 
 #Update Repository
 RUN apt-get update -y
